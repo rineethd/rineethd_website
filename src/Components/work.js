@@ -14,8 +14,8 @@ const steps = [
     date: 'July 2023 - Present',
     companyName: 'Digital Hoop Technologies',
     description: [
-      'Improved user experience by enhancing Compliance reports and Vulnerability reports in Business Value Dashboards.',
-      'Spearheaded the migration of Python2 files to ensure compatibility with Python2 and Python3, enabling the successful import of benchmarks into Server Automation.'
+      'Engaged in the development of diverse Angular components that contribute to the functionality and user experience of the declaration module of the Suez Canal Economic Zone project.',
+      'Building a robust CRUD (Create, Read, Update, Delete) system that facilitates the management of inbound and outbound forms.'
     ]
   },
   {
@@ -40,7 +40,7 @@ const steps = [
     ]
   },
   {
-    label: 'Research & Development Intern',
+    label: 'R&D Intern',
     date: 'Mar 2022 - July 2022',
     companyName: 'Microfocus',
     description: [
@@ -90,18 +90,36 @@ const Work = () => {
   };
 
   return (
-    
-    <Box sx={{ maxWidth: 600, margin: '0 auto',paddingLeft:{ xs: '10px', md: '65px' } }}>
-        <Typography component="span" variant="span" sx={{ color: 'rgb(94, 234, 212)', fontFamily: 'SF Mono,Fira Code,Fira Mono,Roboto Mono,monospace',fontSize: '25px',
-  paddingRight:'1px',fontWeight:'600',paddingLeft:'10px'}}>
-          02.
-        </Typography>
-        <Typography component="span" variant="span" sx={{ color: 'rgb(204, 214, 246)', fontFamily: 'SF Mono,Fira Code,Fira Mono,Roboto Mono,monospace',fontSize: '30px',
-  fontWeight:'600',paddingLeft:'10px'}}>
-          Experience
-        </Typography>
-        <br></br>
-        <br></br>
+    <Box sx={{ maxWidth: 600, margin: '0 auto', paddingLeft: { xs: '10px', md: '65px' } }}>
+      <Typography
+        component="span"
+        variant="span"
+        sx={{
+          color: 'rgb(94, 234, 212)',
+          fontFamily: 'SF Mono,Fira Code,Fira Mono,Roboto Mono,monospace',
+          fontSize: { xs: '20px', md: '25px' },
+          paddingRight: '1px',
+          fontWeight: '600',
+          paddingLeft: '10px'
+        }}
+      >
+        02.
+      </Typography>
+      <Typography
+        component="span"
+        variant="span"
+        sx={{
+          color: 'rgb(204, 214, 246)',
+          fontFamily: 'SF Mono,Fira Code,Fira Mono,Roboto Mono,monospace',
+          fontSize: { xs: '24px', md: '30px' },
+          fontWeight: '600',
+          paddingLeft: '10px'
+        }}
+      >
+        Experience
+      </Typography>
+      <br />
+      <br />
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <StyledStep key={step.label}>
@@ -109,17 +127,15 @@ const Work = () => {
               <Typography
                 sx={{
                   color: 'rgb(204, 214, 246)',
-                  fontFamily:
-                    'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace',
-                  fontSize: '18px'
+                  fontFamily: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace',
+                  fontSize: { xs: '18px', md: '20px' }
                 }}
               >
                 <strong>{step.label}</strong> @{' '}
                 <span
                   style={{
                     color: 'rgb(94, 234, 212)',
-                    fontFamily:
-                      'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace'
+                    fontFamily: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace'
                   }}
                 >
                   {step.companyName}
@@ -128,24 +144,22 @@ const Work = () => {
               <Typography
                 sx={{
                   color: 'rgb(136, 146, 176)',
-                  fontFamily:
-                    'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace'
+                  fontFamily: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace',
+                  fontSize: { xs: '16px', md: '18px' }
                 }}
               >
                 {step.date}
               </Typography>
             </StepLabel>
-            <StepContent
-              style={{ display: activeStep === index ? 'block' : 'none' }}
-            >
+            <StepContent style={{ display: activeStep === index ? 'block' : 'none' }}>
               <Typography
                 sx={{
                   mb: 2,
                   width: '100%',
                   maxWidth: '500px',
                   color: 'rgb(136, 146, 176)',
-                  fontFamily:
-                    'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace'
+                  fontFamily: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace',
+                  fontSize: { xs: '16px', md: '18px' }
                 }}
               >
                 {step.description.map((point, i) => (
@@ -155,8 +169,8 @@ const Work = () => {
                     sx={{
                       mt: 2,
                       color: 'rgb(136, 146, 176)',
-                      fontFamily:
-                        'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace'
+                      fontFamily: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace',
+                      fontSize: { xs: '14px', md: '16px' }
                     }}
                   >
                     <StyledBulletPoint component="span">▹</StyledBulletPoint>
@@ -165,11 +179,7 @@ const Work = () => {
                 ))}
               </Typography>
               {activeStep < steps.length - 1 && (
-                <StyledButton
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 1, mr: 1 }}
-                >
+                <StyledButton variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
                   Next
                 </StyledButton>
               )}
@@ -191,6 +201,8 @@ const Work = () => {
           </StyledStep>
         ))}
       </Stepper>
+      <br></br>
+      <br></br>
     </Box>
   );
 };

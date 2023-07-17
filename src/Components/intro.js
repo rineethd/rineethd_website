@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Badge = styled.span`
   display: inline-block;
   padding: 5px 12px;
@@ -13,23 +12,21 @@ const Badge = styled.span`
   border-radius: 500px;
   margin-right: 8px;
   margin-bottom: 8px;
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
-
 `;
 
 const TextContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   padding-top: 100px;
   padding-left: 80px;
-  
-  @media (max-width: 768px) {
+
+  @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
   }
-
 `;
 
 const TextContent = styled.p`
@@ -37,40 +34,49 @@ const TextContent = styled.p`
   line-height: 1.5;
   color: rgb(136, 146, 176);
   max-width: 600px;
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
 
-
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-top: 20px;
-    
+    font-size: 14px;
   }
 `;
 
 const AboutText = styled.span`
   color: rgb(204, 214, 246);
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   font-size: 30px;
-  font-weight:600;
+  font-weight: 600;
+
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
 `;
 
 const HighlightText = styled.span`
   color: rgb(204, 214, 246);
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   font-size: 17px;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
 `;
 
 const AboutGreenText = styled.span`
   color: rgb(94, 234, 212);
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   font-size: 25px;
-  padding-right:8px;
+  padding-right: 8px;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
 `;
 
 const Intro = () => {
   return (
     <TextContainer>
       <TextContent>
-        <AboutText><AboutGreenText>01.</AboutGreenText>About Me</AboutText>
+        <AboutText>
+          <AboutGreenText>01.</AboutGreenText>About Me
+        </AboutText>
         <br />
         With a deep love for crafting visually appealing and user-friendly interfaces, I thrive on turning complex problems into elegant solutions.
         <br />
@@ -91,11 +97,7 @@ const Intro = () => {
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
-       
-        
-
-    </TextContent>
+      </TextContent>
     </TextContainer>
   );
 };

@@ -1,80 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { Triangle } from 'react-loader-spinner';
 
 const LoaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Adjust this to 100% to cover the full viewport height */
-  width: 100vw; /* Adjust this to 100% to cover the full viewport width */
-  background-color: #020c1b;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0a192f;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
 `;
 
-const animateFade = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
+const TriangleLoader = styled(Triangle)`
+  margin: 0 auto;
 `;
 
 const LoaderText = styled.span`
-  color: #64ffda;
-  font-size: 50px;
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(94, 234, 212);
+  font-size: 35px;
   font-weight: bold;
-  animation: ${animateFade} 2s linear infinite;
 
-  @keyframes ${animateFade} {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
+  @media (max-width: 768px) {
+    font-size: 35px;
   }
 `;
 
 const Loader = () => {
-  const [displayedText, setDisplayedText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const name = 'Rineeth Devareddy';
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
 
-    let currentIndex = 0;
-    const intervalId = setInterval(() => {
-      setDisplayedText(name.substring(0, currentIndex + 1));
-      currentIndex++;
-
-      if (currentIndex === name.length) {
-        clearInterval(intervalId);
-      }
-    }, 100); // Set the interval to 100 milliseconds (0.1 second)
-
-    return () => {
-      clearInterval(intervalId);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <LoaderContainer>
-      {displayedText.split('').map((char, index) => (
-        <LoaderText key={index}>{char}</LoaderText>
-      ))}
-    </LoaderContainer>
-  );
+  if (isLoading) {
+    return (
+      <LoaderContainer>
+        <TriangleLoader height={200} width={200} color="rgb(94, 234, 212)" ariaLabel="triangle-loading" visible={true} />
+        <LoaderText>RD</LoaderText>
+      </LoaderContainer>
+    );
+  }
+
+  return null;
 };
 
 export default Loader;

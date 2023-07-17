@@ -1,24 +1,22 @@
 import React, { useState, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import styled from 'styled-components';
-import IconGitHub from '../Icons/github';
-import IconLinkedin from '../Icons/linkedin';
-import IconLeetcode from '../Icons/leetcode';
-import IconCodechef from '../Icons/codechef';
 import Button from '@mui/material/Button';
 import Work from './work';
 import Intro from './intro';
-
+import Contact from './contact';
+import Project from './projects';
 
 const HomePageContainer = styled.div`
   display: flex;
-  @media (max-width: 768px) {
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
 
 const AboutContainer = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     position: sticky;
     top: 0;
     height: 100vh;
@@ -38,18 +36,23 @@ const Name = styled.h2`
   margin-top: 5px;
   margin-bottom: 5px;
   color: rgb(204, 214, 246);
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
   font-size: 45px;
   font-weight: 600;
   padding-left: 100px;
   padding-top: 100px;
   text-align: left; 
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 38px;
     padding-left: 20px; 
   }
+  
+  @media (max-width: 480px) {
+    font-size: 32px;
+    padding-top: 80px;
+  }
 `;
+
 
 const Paragraph = styled.p`
   font-size: 16px;
@@ -58,14 +61,17 @@ const Paragraph = styled.p`
   margin-top: 5px;
   color: rgb(136, 146, 176);
   max-width: 380px;
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
   padding-left: 100px;
   text-align: left; 
   word-break: break-word; 
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: calc(100% - 40px); 
     padding-left: 20px; 
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 14px;
   }
 `;
 
@@ -73,33 +79,38 @@ const Subheading = styled.h3`
   margin-bottom: 5px;
   margin-top: 5px;
   color: rgb(204, 214, 246);
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
   font-size: 25px;
   font-weight: 600;
   padding-left: 100px;
   text-align: left; 
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 20px;
     padding-left: 20px; 
   }
+  
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 `;
+
+
 
 const Svg = styled.div`
   display: flex;
-  color: rgb(148, 163, 184);
   padding-left: 100px;
   padding-top: 30px;
   gap: 17px;
-  cursor: pointer;
 
-  @media (max-width: 768px) {
-    padding-left: 20px; 
-    padding-top: 20px; 
+  @media (max-width: 1024px) {
+    padding-left: 20px;
+    padding-top: 20px;
     height: 20px;
-    justify-content: flex-start; 
+    justify-content: flex-start;
   }
 `;
+
+
 
 const HorizontalLinesContainer = styled.div`
   display: flex;
@@ -108,10 +119,13 @@ const HorizontalLinesContainer = styled.div`
   margin-top: 40px;
   padding-left: 100px;
 
-  @media (max-width: 768px) {
-    display: none;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left:30px;
   }
 `;
+
 
 const HorizontalLine = styled.div`
   display: flex;
@@ -136,7 +150,6 @@ const SectionName = styled.span`
   color: ${({ isActive }) => (isActive ? 'rgb(229, 231, 235)' : 'rgb(136, 146, 176)')};
   cursor: pointer;
   transition: color 0.3s ease-out;
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
 
   &:hover {
     color: rgb(229, 231, 235);
@@ -146,9 +159,12 @@ const SectionName = styled.span`
 const StyledButton = styled(Button)`
   color: rgb(94, 234, 212) !important;
   background-color: rgba(45, 212, 191, 0.1) !important;
-  font-family: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
   font-weight: 600;
   height:25px;
+  
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 const AboutPage = () => {
@@ -174,6 +190,8 @@ const AboutPage = () => {
 
   const introRef = useRef(null);
   const workRef = useRef(null);
+  const projectRef =useRef(null);
+  const contactRef= useRef(null);
 
   const [activeLine, setActiveLine] = useState(1);
 
@@ -187,8 +205,15 @@ const AboutPage = () => {
     setActiveLine(lineNumber);
     if (lineNumber === 1 && introRef.current) {
       introRef.current.scrollIntoView({ behavior: 'smooth' });
-    } else if (lineNumber === 2 && workRef.current) {
+    }
+    else if (lineNumber === 2 && workRef.current) {
       workRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    else if (lineNumber === 3 && projectRef.current) {
+      projectRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    else if (lineNumber === 4 && contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -230,11 +255,11 @@ const AboutPage = () => {
         </HorizontalLinesContainer>
 
         <Svg>
-        <Icon icon="mingcute:github-fill" color="#ccd6f6" width="24" height="24" onClick={gitIconClicked}/>        
-        <Icon icon="mdi:linkedin" color="#ccd6f6" width="24" height="24" onClick={linkedInIconClicked}/>          
-        <Icon icon="simple-icons:leetcode" color="#ccd6f6" width="24" height="24" onClick={leetCodeIconClicked}/>          
-        <Icon icon="simple-icons:codechef" color="#ccd6f6" width="24" height="24"  onClick={codeChefIconClicked}/>       
-         <StyledButton onClick={handleButtonClicked}>Resume</StyledButton>
+          <Icon icon="mingcute:github-fill" color="#ccd6f6" width="26" height="26" onClick={gitIconClicked} />
+          <Icon icon="mdi:linkedin" color="#ccd6f6" width="26" height="26" onClick={linkedInIconClicked} />
+          <Icon icon="simple-icons:leetcode" color="#ccd6f6" width="26" height="26" onClick={leetCodeIconClicked} />
+          <Icon icon="simple-icons:codechef" color="#ccd6f6" width="26" height="26" onClick={codeChefIconClicked} />
+          <StyledButton onClick={handleButtonClicked}>Resume</StyledButton>
         </Svg>
       </AboutContainer>
 
@@ -244,6 +269,12 @@ const AboutPage = () => {
         </div>
         <div ref={workRef}>
           <Work />
+        </div>
+        <div ref={projectRef}>
+          <Project />
+        </div>
+        <div ref={contactRef}>
+          <Contact />
         </div>
       </IntroContainer>
     </HomePageContainer>
