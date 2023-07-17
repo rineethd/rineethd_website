@@ -38,7 +38,7 @@ const Form = styled.form`
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 20px;
-  padding-left: 120px;
+  padding-left: 110px;
 
   @media (max-width: 1024px) {
     padding-left: 20px;
@@ -96,15 +96,15 @@ const Input = styled.input`
 
 const Textarea = styled.textarea`
   width: 300px;
-  height: 120px; /* Adjust the height as needed */
+  height: 120px;
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 4px;
   background-color: transparent;
   border: 1px solid #ccc;
-  color: rgb(204, 214, 246); /* Set the text color to rgb(204, 214, 246) */
-  caret-color: rgb(94, 234, 212); /* Set the caret color to AboutGreenText color */
+  color: rgb(204, 214, 246); 
+  caret-color: rgb(94, 234, 212); 
 
   &::placeholder {
     color: #ccc;
@@ -123,8 +123,8 @@ const Textarea = styled.textarea`
 const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
-  background-color: rgba(45, 212, 191, 0.1); /* Set the background color to teal */
-  color: rgb(94, 234, 212); /* Set the text color to green */
+  background-color: rgba(45, 212, 191, 0.1);
+  color: rgb(94, 234, 212); 
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -139,8 +139,9 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const message = form.message.value;
-    const mailtoLink = `mailto:rineeth0206@gmail.com?subject=Contact Form Submission&body= ${message}`;
+    const mailtoLink = `mailto:rineeth0206@gmail.com?subject=Hi from ${name}!&body=%0D%0A${message}`;
     window.location.href = mailtoLink;
   };
 
@@ -160,7 +161,6 @@ const Contact = () => {
             name="name"
             placeholder="Enter your name"
             required
-            autoFocus
           />
         </FormGroup>
         <FormGroup>
