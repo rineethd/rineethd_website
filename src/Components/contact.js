@@ -107,7 +107,7 @@ const Textarea = styled.textarea`
   caret-color: rgb(94, 234, 212); 
 
   &::placeholder {
-    color: #ccc;
+    color: rgb(204, 214, 246);
   }
 
   &:focus {
