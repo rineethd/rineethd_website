@@ -1,27 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import weatherImage from './Static/weather.png'
 import websiteImage from './Static/website.png';
 
 
 const projects = [
   {
     id: 1,
-    title: 'Rineeth Website',
-    description: 'A Portfolio site built with React and Material-UI',
+    title: 'Portfolio',
+    description: 'Crafted an immersive personal portfolio website leveraging the power of React and MaterialUI. This dynamic platform showcases my skills, projects, and experience in an engaging and visually appealing manner.',
     image: websiteImage,
   },
   {
     id: 2,
-    title: 'Another Project',
-    description: 'Another project description',
-    image: websiteImage,
-  },
-  {
-    id: 3,
-    title: 'Yet Another Project',
-    description: 'Yet another project description',
-    image: websiteImage,
-  },
+    title: 'Weather Application',
+    description: 'Developed a user interface using HTML and CSS that is responsive and utilized JavaScript to fetch weather data from OpenWeatherMap API based on user’s city input and displayed essential weather details (temperature, description, humidity, wind speed) in a clear format',
+    image: weatherImage,
+  }
 ];
 
 const ProjectContainer = styled.div`
@@ -83,7 +78,7 @@ const ImageContainer = styled.div`
 
   img {
     width: 140px;
-    height: 85px;
+    height: 90px;
   }
 
   @media (max-width: 768px) {

@@ -173,7 +173,7 @@ const AboutPage = () => {
   };
 
   const gitIconClicked = () => {
-    window.open('https://github.com', '_blank');
+    window.open('https://github.com/rineethd', '_blank');
   };
 
   const leetCodeIconClicked = () => {
@@ -185,7 +185,7 @@ const AboutPage = () => {
   };
 
   const linkedInIconClicked = () => {
-    window.open('https://linkedin.com', '_blank');
+    window.open('https://www.linkedin.com/in/rineeth-devareddy-994586192/', '_blank');
   };
 
   const introRef = useRef(null);
@@ -257,8 +257,8 @@ const AboutPage = () => {
         <Svg>
           <Icon icon="mingcute:github-fill" color="#ccd6f6" width="26" height="26" onClick={gitIconClicked} />
           <Icon icon="mdi:linkedin" color="#ccd6f6" width="26" height="26" onClick={linkedInIconClicked} />
-          <Icon icon="simple-icons:leetcode" color="#ccd6f6" width="26" height="26" onClick={leetCodeIconClicked} />
-          <Icon icon="simple-icons:codechef" color="#ccd6f6" width="26" height="26" onClick={codeChefIconClicked} />
+          {/*<Icon icon="simple-icons:leetcode" color="#ccd6f6" width="26" height="26" onClick={leetCodeIconClicked} />*/}
+          {/*<Icon icon="simple-icons:codechef" color="#ccd6f6" width="26" height="26" onClick={codeChefIconClicked} />*/}
           <StyledButton onClick={handleButtonClicked}>Resume</StyledButton>
         </Svg>
       </AboutContainer>
