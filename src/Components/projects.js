@@ -8,13 +8,13 @@ const projects = [
   {
     id: 1,
     title: 'Portfolio',
-    description: 'Crafted an immersive personal portfolio website leveraging the power of React and MaterialUI. This dynamic platform showcases my skills, projects, and experience in an engaging and visually appealing manner.',
+    description: 'This dynamic platform showcases my skills, projects, and experience in an engaging and visually appealing manner.',
     image: websiteImage,
   },
   {
     id: 2,
     title: 'Weather Application',
-    description: 'Developed a user interface using HTML and CSS that is responsive and utilized JavaScript to fetch weather data from OpenWeatherMap API based on user’s city input and displayed essential weather details (temperature, description, humidity, wind speed) in a clear format',
+    description: 'Developed a user interface which displays weather data based on user’s city input and displays essential weather details (temperature, description, humidity, wind speed) in a clear format',
     image: weatherImage,
   }
 ];
@@ -78,7 +78,7 @@ const ImageContainer = styled.div`
 
   img {
     width: 140px;
-    height: 90px;
+    height: 85px;
   }
 
   @media (max-width: 768px) {
@@ -104,6 +104,10 @@ const Description = styled.p`
   color: rgb(136, 146, 176);
   font-size: 16px;
   margin-top: -3px;
+
+  @media (max-width: 1024px) {
+    margin-right: 10px; /* Adjust the margin value as per your requirements */
+  }
 `;
 
 const Project = () => {
